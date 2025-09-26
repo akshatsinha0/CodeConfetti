@@ -5,12 +5,24 @@
   "publisher":"akshatsinha0",
   "engines":{"vscode":"^1.74.0"},
   "categories":["Other"],
-  "activationEvents":["onStartupFinished","onCommand:codeConfetti.trigger"],
+  "activationEvents":["onStartupFinished","onCommand:codeConfetti.trigger","onCommand:codeConfetti.toggle"],
   "main":"./out/extension.js",
   "contributes":{
     "commands":[
-      {"command":"codeConfetti.trigger","title":"Code Confetti: Celebrate"}
-    ]
+      {"command":"codeConfetti.trigger","title":"Code Confetti: Celebrate"},
+      {"command":"codeConfetti.toggle","title":"Code Confetti: Toggle"}
+    ],
+    "configuration":{
+      "title":"Code Confetti",
+      "properties":{
+        "codeConfetti.enableOnTaskSuccess":{"type":"boolean","default":true,"description":"Celebrate when a task finishes successfully"},
+        "codeConfetti.enableOnDebugEnd":{"type":"boolean","default":true,"description":"Celebrate when a debug session ends"},
+        "codeConfetti.enableOnProblemsCleared":{"type":"boolean","default":true,"description":"Celebrate when all errors in the workspace are cleared"},
+        "codeConfetti.enableOnSave":{"type":"boolean","default":false,"description":"Celebrate when a saved file has no errors"},
+        "codeConfetti.intensity":{"type":"string","enum":["low","medium","high"],"default":"medium","description":"Amount of confetti"},
+        "codeConfetti.durationMs":{"type":"number","default":2000,"minimum":500,"maximum":10000,"description":"How long the confetti lasts in milliseconds"}
+      }
+    }
   },
   "scripts":{
     "vscode:prepublish":"npm run compile",
