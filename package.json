@@ -1,7 +1,7 @@
 {
   "name":"code-confetti",
   "displayName":"Code Confetti",
-  "version":"0.0.2",
+  "version":"0.0.3",
   "publisher":"akshatsinha0",
   "repository":"https://github.com/akshatsinha0/CodeConfetti.git",
   "engines":{"vscode":"^1.74.0"},
