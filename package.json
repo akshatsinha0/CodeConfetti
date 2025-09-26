@@ -8,7 +8,7 @@
   "categories":["Other"],
   "activationEvents":["onStartupFinished","onCommand:codeConfetti.trigger","onCommand:codeConfetti.toggle","onCommand:codeConfetti.burst","onCommand:codeConfetti.pickStyle"],
   "main":"./out/extension.js",
-  "icon":"images/icon.svg",
+  "icon":"images/icon.png",
   "contributes":{
     "commands":[
       {"command":"codeConfetti.trigger","title":"Code Confetti: Celebrate"},
