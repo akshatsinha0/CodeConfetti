@@ -32,6 +32,14 @@
     "package":"vsce package",
     "publish":"vsce publish --noVerify"
   },
+  "scripts":{
+    "vscode:prepublish":"npm run compile",
+    "compile":"tsc -p ./",
+    "watch":"tsc -watch -p ./",
+    "package":"vsce package",
+    "publish":"vsce publish --noVerify --skip-duplicate"
+  },
+  "license":"MIT",
   "devDependencies":{
     "@types/vscode":"^1.74.0",
     "typescript":"^5.4.0",
