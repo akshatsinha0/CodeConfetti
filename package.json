@@ -1,12 +1,12 @@
 {
   "name":"code-confetti",
   "displayName":"Code Confetti",
-  "version":"0.0.4",
+  "version":"0.0.5",
   "publisher":"akshatsinha0",
   "repository":"https://github.com/akshatsinha0/CodeConfetti.git",
   "engines":{"vscode":"^1.74.0"},
   "categories":["Other"],
-  "activationEvents":["onStartupFinished","onCommand:codeConfetti.trigger","onCommand:codeConfetti.toggle","onCommand:codeConfetti.burst","onCommand:codeConfetti.pickStyle"],
+  "activationEvents":["onStartupFinished","onCommand:codeConfetti.trigger","onCommand:codeConfetti.toggle","onCommand:codeConfetti.burst","onCommand:codeConfetti.pickStyle","onCommand:codeConfetti.pickPattern","onCommand:codeConfetti.pickTheme","onCommand:codeConfetti.cycleIntensity","onCommand:codeConfetti.random"],
   "main":"./out/extension.js",
   "icon":"images/icon.png",
   "contributes":{
@@ -14,7 +14,11 @@
       {"command":"codeConfetti.trigger","title":"Code Confetti: Celebrate"},
       {"command":"codeConfetti.toggle","title":"Code Confetti: Toggle"},
       {"command":"codeConfetti.burst","title":"Code Confetti: Burst"},
-      {"command":"codeConfetti.pickStyle","title":"Code Confetti: Pick Style"}
+      {"command":"codeConfetti.pickStyle","title":"Code Confetti: Pick Style"},
+      {"command":"codeConfetti.pickPattern","title":"Code Confetti: Pick Pattern"},
+      {"command":"codeConfetti.pickTheme","title":"Code Confetti: Pick Theme"},
+      {"command":"codeConfetti.cycleIntensity","title":"Code Confetti: Cycle Intensity"},
+      {"command":"codeConfetti.random","title":"Code Confetti: Random"}
     ],
     "configuration":{
       "title":"Code Confetti",
@@ -25,22 +29,20 @@
         "codeConfetti.enableOnSave":{"type":"boolean","default":false,"description":"Celebrate when a saved file has no errors"},
         "codeConfetti.intensity":{"type":"string","enum":["low","medium","high"],"default":"medium","description":"Amount of confetti"},
         "codeConfetti.durationMs":{"type":"number","default":2000,"minimum":500,"maximum":10000,"description":"How long the confetti lasts in milliseconds"},
-        "codeConfetti.style":{"type":"string","enum":["classic","circles","triangles","stars","emoji"],"default":"classic","description":"Visual style of confetti"},
+        "codeConfetti.style":{"type":"string","enum":["classic","circles","triangles","stars","emoji","ribbons"],"default":"classic","description":"Visual style of confetti"},
         "codeConfetti.theme":{"type":"string","enum":["rainbow","warm","cool","mono"],"default":"rainbow","description":"Color theme"},
-        "codeConfetti.pattern":{"type":"string","enum":["fall","burst"],"default":"fall","description":"Motion pattern"},
+        "codeConfetti.pattern":{"type":"string","enum":["fall","burst","fireworks"],"default":"fall","description":"Motion pattern"},
         "codeConfetti.spawn":{"type":"string","enum":["top","center","bottom","random"],"default":"top","description":"Where particles originate"},
         "codeConfetti.emojiList":{"type":"string","default":"🎉✨🎊⭐🔥💥","description":"Emoji characters to use when style is emoji"},
         "codeConfetti.showMessage":{"type":"boolean","default":false,"description":"Show a short overlay message"},
-        "codeConfetti.messageText":{"type":"string","default":"Great job! 🎉","description":"Overlay message text"}
+        "codeConfetti.messageText":{"type":"string","default":"Great job! 🎉","description":"Overlay message text"},
+        "codeConfetti.gravity":{"type":"number","default":0.05,"minimum":0.0,"maximum":0.2,"description":"Gravity strength"},
+        "codeConfetti.wind":{"type":"number","default":0,"minimum":-2,"maximum":2,"description":"Horizontal wind"},
+        "codeConfetti.overlayOpacity":{"type":"number","default":0,"minimum":0,"maximum":0.8,"description":"Background dim opacity"},
+        "codeConfetti.enableSound":{"type":"boolean","default":false,"description":"Play a short sound"},
+        "codeConfetti.soundVolume":{"type":"number","default":0.5,"minimum":0,"maximum":1,"description":"Sound volume"}
       }
     }
-  },
-  "scripts":{
-    "vscode:prepublish":"npm run compile",
-    "compile":"tsc -p ./",
-    "watch":"tsc -watch -p ./",
-    "package":"vsce package",
-    "publish":"vsce publish --noVerify"
   },
   "scripts":{
     "vscode:prepublish":"npm run compile",
