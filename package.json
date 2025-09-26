@@ -1,13 +1,14 @@
 {
   "name":"code-confetti",
   "displayName":"Code Confetti",
-  "version":"0.0.3",
+  "version":"0.0.4",
   "publisher":"akshatsinha0",
   "repository":"https://github.com/akshatsinha0/CodeConfetti.git",
   "engines":{"vscode":"^1.74.0"},
   "categories":["Other"],
   "activationEvents":["onStartupFinished","onCommand:codeConfetti.trigger","onCommand:codeConfetti.toggle","onCommand:codeConfetti.burst","onCommand:codeConfetti.pickStyle"],
   "main":"./out/extension.js",
+  "icon":"images/icon.svg",
   "contributes":{
     "commands":[
       {"command":"codeConfetti.trigger","title":"Code Confetti: Celebrate"},
